@@ -1,164 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Som Bharti | Mechatronics Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <style>
-        body { background-color: #020617; color: #f8fafc; scroll-behavior: smooth; }
-        #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
-        .glass-card { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s ease; }
-        .glass-card:hover { border-color: #38bdf8; transform: translateY(-8px); }
-        .gradient-text { background: linear-gradient(90deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .profile-img { width: 160px; height: 160px; object-fit: cover; border: 4px solid #38bdf8; border-radius: 50%; margin: 0 auto 2rem; box-shadow: 0 0 30px rgba(56, 189, 248, 0.3); }
-        .sw-icon-local { width: 45px; height: 45px; filter: brightness(0) invert(1); transition: 0.3s; }
-        .sw-icon-local:hover { filter: none; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Som Bharti | Mechatronics Engineer</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+  background-color: #020617;
+  color: #f8fafc;
+  scroll-behavior: smooth;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+  border-color: #38bdf8;
+  transform: translateY(-6px);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border: 4px solid #38bdf8;
+  border-radius: 50%;
+  margin: 0 auto 2rem;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+}
+
+/* LIGHT MODE */
+.light-mode {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+.light-mode .glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-mode nav {
+  background: rgba(255,255,255,0.9);
+}
+
+.light-mode .text-slate-400 {
+  color: #334155 !important;
+}
+</style>
 </head>
-<body class="font-sans antialiased text-left">
 
-    <div id="canvas-container"></div>
+<body class="font-sans antialiased">
 
-    <nav class="sticky top-0 z-50 p-6 backdrop-blur-lg border-b border-white/5">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold tracking-tight uppercase">Som <span class="text-sky-400">Bharti</span></h1>
-            <div class="hidden md:flex space-x-8 text-xs font-semibold uppercase tracking-widest text-slate-300">
-                <a href="#about" class="hover:text-sky-400 transition">About</a>
-                <a href="#skills" class="hover:text-sky-400 transition">Skills</a>
-                <a href="#projects" class="hover:text-sky-400 transition">Projects</a>
-                <a href="#experience" class="hover:text-sky-400 transition">Experience</a>
-                <a href="mailto:sombharti8@email.com" class="text-sky-400 border border-sky-400/50 px-5 py-2 rounded-full hover:bg-sky-400 transition">Contact</a>
-            </div>
-        </div>
-    </nav>
+<!-- NAVBAR -->
+<nav class="sticky top-0 z-50 p-6 backdrop-blur-lg border-b border-white/5">
+<div class="max-w-6xl mx-auto flex justify-between items-center">
+<h1 class="text-xl font-bold uppercase">
+<i class="fa-solid fa-microchip text-sky-400 mr-2"></i>
+Som <span class="text-sky-400">Bharti</span>
+</h1>
 
-    <header id="about" class="max-w-4xl mx-auto text-center py-24 px-6">
-        <img src="profile.jpg" alt="Som Bharti" class="profile-img">
-        <h2 class="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight leading-tight">Mechatronics <span class="gradient-text">Engineer</span></h2>
-        <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            M.Tech Mechatronics student specializing in robotics, embedded systems, and autonomous systems. Expert in ROS-based robot development, ESP32/Raspberry Pi systems, and vision-guided robotics.
-        </p>
+<div class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-widest text-slate-300">
+<a href="#about" class="hover:text-sky-400">About</a>
+<a href="#skills" class="hover:text-sky-400">Skills</a>
+<a href="#projects" class="hover:text-sky-400">Projects</a>
+<a href="#experience" class="hover:text-sky-400">Experience</a>
+
+<button id="theme-toggle" class="ml-4 px-4 py-2 rounded-full border border-sky-400 text-sky-400 hover:bg-sky-400 hover:text-black transition">
+<i class="fa-solid fa-moon"></i>
+</button>
+</div>
+</div>
+</nav>
+
+<!-- HEADER -->
+<header id="about" class="max-w-4xl mx-auto text-center py-24 px-6">
+<img src="profile.jpg" alt="Som Bharti" class="profile-img">
+
+<h2 class="text-5xl md:text-7xl font-extrabold mb-8">
+Mechatronics <span class="gradient-text">Engineer</span>
+</h2>
+
+<p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+M.Tech Mechatronics student focused on robotics, embedded systems, and automotive automation. 
+Experienced in ROS-based development, ESP32/Raspberry Pi platforms, and vision-guided robotics using Intel RealSense. 
+Skilled in real-time control, robot kinematics, and MATLAB/Simulink simulation.
+</p>
+</header>
+<div class="flex justify-center gap-4 flex-wrap">
+
+<a href="resume.pdf" download
+class="px-8 py-4 bg-sky-600 rounded-xl font-bold hover:bg-sky-500 transition">
+<i class="fa-solid fa-download mr-2"></i>Resume
+</a>
+
+<a href="https://linkedin.com/in/sombharti" target="_blank"
+class="px-8 py-4 glass-card rounded-xl font-bold">
+<i class="fa-brands fa-linkedin mr-2"></i>LinkedIn
+</a>
+
+<a href="https://github.com/sombharti8" target="_blank"
+class="px-8 py-4 glass-card rounded-xl font-bold">
+<i class="fa-brands fa-github mr-2"></i>GitHub
+</a>
+
+</div>
+<!-- SKILLS -->
+<section id="skills" class="max-w-6xl mx-auto py-20 px-6">
+<h3 class="text-3xl font-bold mb-16 text-center text-sky-400 uppercase">
+<i class="fa-solid fa-microchip mr-3"></i>Technical Expertise
+</h3>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-center text-sm">
+
+<div class="glass-card p-10 rounded-3xl">
+<i class="fa-solid fa-robot text-4xl text-sky-400 mb-6"></i>
+<h4 class="font-bold text-lg mb-4">Robotics & Vision</h4>
+<div class="flex justify-center gap-6 text-4xl mb-6">
+<i class="devicon-ros-original"></i>
+<i class="devicon-python-plain"></i>
+<i class="devicon-linux-plain"></i>
+</div>
+<p class="text-slate-400">
+ROS, Gazebo, Robot Kinematics, Intel RealSense.
+</p>
+</div>
+
+<div class="glass-card p-10 rounded-3xl">
+<i class="fa-solid fa-microchip text-4xl text-sky-400 mb-6"></i>
+<h4 class="font-bold text-lg mb-4">Embedded Systems</h4>
+<div class="flex justify-center gap-6 text-4xl mb-6">
+<i class="devicon-cplusplus-plain"></i>
+<i class="devicon-arduino-plain"></i>
+<i class="devicon-raspberrypi-line"></i>
+</div>
+<p class="text-slate-400">
+ESP32, Embedded C/C++, GSM, GPS.
+</p>
+</div>
+
+<div class="glass-card p-10 rounded-3xl">
+<i class="fa-solid fa-drafting-compass text-4xl text-sky-400 mb-6"></i>
+
+<h4 class="font-bold text-lg mb-4">CAD & Mechanical Design</h4>
+
+<div class="flex justify-center gap-8 items-center mb-6">
+
+<img src="solidworks.svg"
+class="w-12 h-12 filter brightness-0 invert hover:invert-0 transition duration-300"
+alt="SolidWorks">
+
+<i class="fa-solid fa-compass-drafting text-4xl"></i>
+<i class="fa-solid fa-cube text-4xl"></i>
+
+</div>
+
+<p class="text-slate-400">
+SolidWorks, AutoCAD, Fusion 360, GD&T.
+</p>
+</div>
+
+
+<div class="glass-card p-10 rounded-3xl">
+<i class="fa-solid fa-chart-line text-4xl text-sky-400 mb-6"></i>
+<h4 class="font-bold text-lg mb-4">Control Systems</h4>
+<div class="flex justify-center gap-6 text-4xl mb-6">
+<i class="devicon-matlab-plain"></i>
+<i class="devicon-cplusplus-plain"></i>
+</div>
+<p class="text-slate-400">
+PID Control, MATLAB/Simulink, State-Space Modeling.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
+<!-- PROJECTS -->
+<section id="projects" class="max-w-6xl mx-auto py-20 px-6">
+<h3 class="text-3xl font-bold mb-16 text-center text-sky-400 uppercase">
+<i class="fa-solid fa-diagram-project mr-3"></i>Projects
+</h3>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+<!-- 1 -->
+<div class="glass-card p-10 rounded-3xl">
+<i class="fa-solid fa-eye text-3xl text-sky-400 mb-4"></i>
+<h4 class="text-xl font-bold text-sky-400 mb-4">
+Robot-Guided Rare Earth Metal Sorting
+</h4>
+<p class="text-slate-400 text-sm leading-relaxed">
+Vision-guided Dobot automation using Intel RealSense RGB-D camera.
+MATLAB-based hand–eye calibration and coordinate transformation.
+</p>
+</div>
+
+<!-- 2 -->
+<div class="glass-card p-10 rounded-3xl">
+<i class="fa-solid fa-car text-3xl text-sky-400 mb-4"></i>
+<h4 class="text-xl font-bold text-sky-400 mb-4">
+Hill Detection & Hill-Hold Assist System
+</h4>
+<p class="text-slate-400 text-sm leading-relaxed">
+IMU-based slope detection and PID-based automotive assist control simulation.
+</p>
+</div>
+
+<!-- 3 -->
+<div class="glass-card p-10 rounded-3xl">
+<i class="fa-solid fa-heart-pulse text-3xl text-sky-400 mb-4"></i>
+<h4 class="text-xl font-bold text-sky-400 mb-4">
+Gesture-Controlled Health Monitoring Wearable
+</h4>
+<p class="text-slate-400 text-sm leading-relaxed">
+ESP32 wearable with gesture recognition and SpO2 monitoring.
+Wireless alert system via Wi-Fi.
+</p>
+</div>
+
+<!-- 4 -->
+<div class="glass-card p-10 rounded-3xl">
+<i class="fa-solid fa-satellite-dish text-3xl text-sky-400 mb-4"></i>
+<h4 class="text-xl font-bold text-sky-400 mb-4">
+GSM-Based Wireless Mobile Robot Control
+</h4>
+<p class="text-slate-400 text-sm leading-relaxed">
+Cellular-based remote robotic navigation and embedded motor control firmware.
+</p>
+</div>
+
+<!-- 5 -->
+<div class="glass-card p-10 rounded-3xl">
+<i class="fa-solid fa-pills text-3xl text-sky-400 mb-4"></i>
+<h4 class="text-xl font-bold text-sky-400 mb-4">
+Smart Embedded Medicine Dispenser
+</h4>
+<p class="text-slate-400 text-sm leading-relaxed">
+ESP32-based medicine dispensing system with RTC scheduling and RFID security.
+</p>
+</div>
+
+<!-- 6 -->
+<div class="glass-card p-10 rounded-3xl">
+<i class="fa-solid fa-tractor text-3xl text-sky-400 mb-4"></i>
+<h4 class="text-xl font-bold text-sky-400 mb-4">
+Autonomous Agricultural Mobile Robot
+</h4>
+<p class="text-slate-400 text-sm leading-relaxed">
+ROS-based agricultural rover with GPS navigation and obstacle avoidance.
+</p>
+</div>
+</div>
+</section>
+<!-- EXPERIENCE -->
+<section id="experience" class="max-w-4xl mx-auto py-24 px-6">
+<h3 class="text-3xl font-bold mb-20 text-center uppercase tracking-widest text-sky-400">
+<i class="fa-solid fa-briefcase mr-3"></i>Professional Experience
+</h3>
+
+<div class="relative">
+
+    <!-- Vertical Line -->
+    <div class="absolute left-4 top-0 w-0.5 h-full bg-sky-500/60"></div>
+
+    <!-- Item 1 -->
+    <div class="relative pl-16 mb-16">
         
-        <div class="flex justify-center items-center gap-10 mb-12 grayscale opacity-60 hover:opacity-100 transition-all">
-            <i class="devicon-cplusplus-plain text-4xl" title="C++"></i>
-            <i class="devicon-python-plain text-4xl" title="Python"></i>
-            <i class="devicon-matlab-plain text-4xl" title="MATLAB"></i>
-            <img src="solidworks.svg" class="sw-icon-local" alt="SolidWorks" title="SolidWorks">
+        <!-- Timeline Dot -->
+        <div class="absolute left-0 top-2 w-8 h-8 bg-sky-500 rounded-full border-4 border-slate-900 flex items-center justify-center">
+            <i class="fa-solid fa-chalkboard-user text-white text-sm"></i>
         </div>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="resume1.pdf" target="_blank" class="px-8 py-4 bg-sky-600 rounded-xl font-bold hover:bg-sky-500 transition shadow-lg">View Resume</a>
-            <a href="https://linkedin.com/in/sombharti" target="_blank" class="px-8 py-4 glass-card rounded-xl font-bold">LinkedIn</a>
-        </div>
-    </header>
+        <h4 class="text-xl font-bold mb-1">Teaching Assistant</h4>
+        <p class="text-sky-400 text-sm mb-3">
+            Ahmedabad University | Jan 2024 – May 2024
+        </p>
 
-    <section id="skills" class="max-w-6xl mx-auto py-20 px-6">
-        <h3 class="text-3xl font-bold mb-16 text-center text-sky-400 uppercase tracking-widest">Technical Expertise</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-sm leading-relaxed">
-            <div class="glass-card p-10 rounded-3xl">
-                <i class="devicon-raspberrypi-line text-5xl mb-6 block text-red-500"></i>
-                <h4 class="font-bold text-lg mb-2">Robotics & Vision</h4>
-                <p class="text-slate-400 text-center">Autonomous Robots, ROS, Gazebo Simulation, Vision-Guided Manipulation, and Intel RealSense calibration.</p>
-            </div>
-            <div class="glass-card p-10 rounded-3xl">
-                <i class="devicon-arduino-plain text-5xl mb-4 block text-teal-400"></i>
-                <h4 class="font-bold text-lg mb-2">Embedded Systems</h4>
-                <p class="text-slate-400 text-center">ESP32, Raspberry Pi, GSM, GPS, and RFID interfacing with Embedded C/C++.</p>
-            </div>
-            <div class="glass-card p-10 rounded-3xl">
-                <i class="devicon-linux-plain text-5xl mb-4 block"></i>
-                <h4 class="font-bold text-lg mb-2 text-white text-center">Control & CAD</h4>
-                <p class="text-slate-400 text-center">PID Control, Speedgoat Real-Time Platforms, SolidWorks Modeling, and GD&T.</p>
-            </div>
-        </div>
-    </section>
+        <p class="text-slate-400 text-sm leading-relaxed">
+            Assisted 50+ students in robotics and mechanical engineering laboratory sessions.
+            Guided practical implementation of robot kinematics, control systems,
+            and embedded experimentation.
+        </p>
+    </div>
 
-    <section id="projects" class="max-w-6xl mx-auto py-20 px-6">
-        <h3 class="text-3xl font-bold mb-16 text-center uppercase tracking-widest text-sky-400">Featured Projects</h3>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div class="glass-card p-10 rounded-[2.5rem]">
-                <h4 class="text-2xl font-bold text-sky-400 mb-4">Hill Detection & Hold Assist</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">Developed a real-time system using IMU and LiDAR sensors on the Speedgoat platform for autonomous vehicle assist.</p>
-            </div>
-            <div class="glass-card p-10 rounded-[2.5rem]">
-                <h4 class="text-2xl font-bold text-sky-400 mb-4">Vision-Guided Sorting</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">M.Tech Thesis: Integrated Intel RealSense RGB-D camera with Dobot arm for 3D object localization and pick-and-place.</p>
-            </div>
-            <div class="glass-card p-10 rounded-[2.5rem]">
-                <h4 class="text-2xl font-bold text-sky-400 mb-4">Autonomous Agri-Robot</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">Built a ROS-based agricultural rover featuring GPS localization, obstacle avoidance, and crab-walk maneuverability.</p>
-            </div>
-            <div class="glass-card p-10 rounded-[2.5rem]">
-                <h4 class="text-2xl font-bold text-sky-400 mb-4">Smart Medicine Dispenser</h4>
-                <p class="text-slate-400 text-sm leading-relaxed">ESP32-based dispenser featuring RTC timing, RFID security, and GSM-based SMS alerts for notifications.</p>
-            </div>
+    <!-- Item 2 -->
+    <div class="relative pl-16">
+        
+        <!-- Timeline Dot -->
+        <div class="absolute left-0 top-2 w-8 h-8 bg-slate-600 rounded-full border-4 border-slate-900 flex items-center justify-center">
+            <i class="fa-solid fa-gears text-white text-sm"></i>
         </div>
-    </section>
 
-    <section id="experience" class="max-w-4xl mx-auto py-20 px-6">
-        <h3 class="text-3xl font-bold mb-16 text-center uppercase tracking-widest">Experience</h3>
-        <div class="space-y-12">
-            <div class="border-l-2 border-sky-500 pl-8 relative">
-                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-sky-500"></div>
-                <h5 class="text-xl font-bold">Teaching Assistant</h5>
-                <p class="text-sky-400">Ahmedabad University | Jan 2024 — May 2024</p>
-                <p class="text-slate-400 text-sm mt-3">Assisted 50+ students in robotics and mechanical engineering lab sessions.</p>
-            </div>
-            <div class="border-l-2 border-slate-700 pl-8 relative">
-                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-700"></div>
-                <h5 class="text-xl font-bold">Mechanical Engineering Intern</h5>
-                <p class="text-sky-400">Chem Process Systems Pvt. Ltd. | May 2023 — Jul 2023</p>
-                <p class="text-slate-400 text-sm mt-3">Assisted in design and fabrication of industrial heat exchangers using CAD models.</p>
-            </div>
-        </div>
-    </section>
+        <h4 class="text-xl font-bold mb-1">Mechanical Engineering Intern</h4>
+        <p class="text-sky-400 text-sm mb-3">
+            Chem Process Systems Pvt. Ltd. | May 2023 – Jul 2023
+        </p>
 
-    <footer class="text-center py-20 border-t border-white/5">
-        <p class="text-slate-500 text-sm font-bold tracking-widest uppercase mb-4">Som Bharti • +91 97255 97274</p>
-        <div class="flex justify-center gap-6 mt-6">
-            <a href="mailto:sombharti8@email.com" class="hover:text-sky-400 transition text-2xl"><i class="devicon-google-plain"></i></a>
-            <a href="https://linkedin.com/in/sombharti" target="_blank" class="hover:text-sky-400 transition text-2xl"><i class="devicon-linkedin-plain"></i></a>
-        </div>
-    </footer>
+        <p class="text-slate-400 text-sm leading-relaxed">
+            Contributed to industrial heat exchanger design and CAD modeling.
+            Supported thermal analysis, manufacturing documentation,
+            and mechanical system validation.
+        </p>
+    </div>
 
-    <script>
-        let scene, camera, renderer, starGeo, stars;
-        function init() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-            camera.position.z = 1; camera.rotation.x = Math.PI/2;
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            document.getElementById('canvas-container').appendChild(renderer.domElement);
-            starGeo = new THREE.BufferGeometry();
-            let positions = [];
-            for(let i=0; i<8000; i++) {
-                positions.push(Math.random() * 600 - 300);
-                positions.push(Math.random() * 600 - 300);
-                positions.push(Math.random() * 600 - 300);
-            }
-            starGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-            let sprite = new THREE.TextureLoader().load('https://threejs.org/examples/textures/sprites/disc.png');
-            let starMaterial = new THREE.PointsMaterial({ color: 0x38bdf8, size: 0.8, map: sprite, transparent: true, opacity: 0.6 });
-            stars = new THREE.Points(starGeo, starMaterial);
-            scene.add(stars);
-            animate();
-        }
-        function animate() {
-            stars.rotation.y += 0.0004;
-            renderer.render(scene, camera);
-            requestAnimationFrame(animate);
-        }
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-        init();
-    </script>
+</div>
+</section>
+<!-- CONTACT -->
+<section id="contact" class="max-w-4xl mx-auto py-24 px-6 text-center">
+<h3 class="text-3xl font-bold mb-12 uppercase tracking-widest text-sky-400">
+<i class="fa-solid fa-envelope mr-3"></i>Contact
+</h3>
+
+<div class="glass-card p-10 rounded-3xl inline-block space-y-6">
+
+<!-- Email -->
+<div class="flex items-center justify-center gap-3 text-lg">
+<i class="fa-solid fa-envelope text-sky-400"></i>
+<a href="mailto:sombharti8@email.com" 
+class="hover:text-sky-400 transition">
+sombharti8@email.com
+</a>
+</div>
+
+<!-- Phone -->
+<div class="flex items-center justify-center gap-3 text-lg">
+<i class="fa-solid fa-phone text-sky-400"></i>
+<a href="tel:+919725597274" 
+class="hover:text-sky-400 transition">
++91 97255 97274
+</a>
+</div>
+
+</div>
+</section>
+
+</div>
+</section>
+<script>
+const toggleBtn = document.getElementById("theme-toggle");
+const body = document.body;
+const icon = toggleBtn.querySelector("i");
+
+toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("light-mode");
+    icon.classList.toggle("fa-moon");
+    icon.classList.toggle("fa-sun");
+});
+</script>
+
 </body>
 </html>
